@@ -27,7 +27,7 @@ export const useWishlistStore = create<WishlistStore>()(
       clearWishlist: () => set({ wishlist: [] }),
     }),
     {
-      name: 'antigravity-wishlist',
+      name: 'gurukripa-tiles-wishlist',
     }
   )
 );

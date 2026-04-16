@@ -10,7 +10,7 @@ export interface Tile {
   slug: string;
   collection: string;
   room: ("bathroom" | "kitchen" | "living" | "outdoor" | "commercial")[];
-  material: "Marble" | "Porcelain" | "Cement" | "Terrazzo" | "Mosaic" | "Slate" | "Travertine";
+  material: "Marble" | "Porcelain" | "Cement" | "Terrazzo" | "Mosaic" | "Slate" | "Travertine" | "Terracotta";
   finish: "Matte" | "Glossy" | "Textured" | "Polished" | "Brushed";
   size: string;
   color: string;
