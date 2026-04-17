@@ -110,8 +110,8 @@ export default function AboutPage() {
               className="md:col-span-5 relative aspect-[3/4] border border-ag-mist overflow-hidden translate-y-12"
             >
               <Image
-                src="/images/tiles/brutalist-2.jpg"
-                alt="Architectural inspiration"
+                src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
+                alt="Gurukripa Hardware and Building Material showroom"
                 fill
                 className="object-cover grayscale hover:scale-105 transition-transform duration-1000"
               />
@@ -129,15 +129,27 @@ export default function AboutPage() {
               <h2 className="text-5xl md:text-7xl font-display">The Visionaries</h2>
             </div>
             <p className="text-ag-sand/40 max-w-xs font-sans text-sm italic">
-              A collective of curators and material scientists dedicated to architectural excellence.
+              Meet the core team at our Mokalsar branch.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24">
             {[
-              { name: "Arjun Mehta", phone: "+91 999 000 1111", role: "Curator" },
-              { name: "Vikram Singh", phone: "+91 999 000 2222", role: "Material Lead" },
-              { name: "Ananya Sharma", phone: "+91 999 000 3333", role: "Architect" },
+              {
+                name: "Uday Singh",
+                role: "Owner",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
+              },
+              {
+                name: "Ashok Singh",
+                role: "Branch Manager",
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
+              },
+              {
+                name: "Mukesh Bhati",
+                role: "Worker",
+                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
+              },
             ].map((member, i) => (
               <motion.div
                 key={i}
@@ -149,18 +161,18 @@ export default function AboutPage() {
               >
                 <div className="relative aspect-[4/5] bg-ag-stone/20 border border-ag-mist/20 overflow-hidden mb-8">
                   <div className="absolute inset-0 bg-gradient-to-t from-ag-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  {/* Styled Placeholder */}
-                  <div className="flex items-center justify-center h-full">
-                    <div className="w-[1px] h-12 bg-ag-mist/30" />
-                    <div className="w-12 h-[1px] bg-ag-mist/30 absolute" />
-                  </div>
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 
                 <div className="relative">
                   <span className="text-[10px] font-mono text-ag-copper uppercase tracking-[0.3em] mb-2 block">{member.role}</span>
                   <h3 className="text-3xl font-display text-ag-white mb-4">{member.name}</h3>
                   <div className="h-[1px] w-full bg-ag-mist/20 mb-4 group-hover:w-1/2 transition-all duration-500" />
-                  <p className="text-ag-sand/30 font-mono text-[10px] uppercase tracking-widest">{member.phone}</p>
                 </div>
               </motion.div>
             ))}
@@ -208,9 +220,9 @@ export default function AboutPage() {
 
       {/* 05. SUSTAINABILITY - THE BEDROCK */}
       <section className="relative py-48 px-6 bg-ag-black border-t border-ag-mist/10 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[50%] h-full opacity-5 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[50%] h-full opacity-40 pointer-events-none">
           <Image
-             src="/images/tiles/brutalist-3.jpg"
+             src="/images/tiles/basalt-1.jpg"
              alt="Sustainability Backdrop"
              fill
              className="object-cover grayscale"

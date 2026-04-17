@@ -25,7 +25,7 @@ export function Footer() {
             <h2 className="text-3xl font-display font-semibold tracking-tighter">GURUKRIPA TILES</h2>
             <p className="text-ag-sand/70 font-sans max-w-sm leading-relaxed">
               Curating architectural surfaces that redefine the intersection of raw materiality 
-              and luxury craftsmanship. Based in Mumbai, serving the world's most 
+              and luxury craftsmanship. Based in Mokalsar, serving the region's most 
               discerning spaces.
             </p>
             <div className="flex space-x-4 pt-4">
@@ -74,11 +74,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-10 border-y border-ag-mist mb-10 text-sm">
           <div className="flex items-center space-x-3">
             <MapPin className="w-5 h-5 text-ag-copper" />
-            <span className="text-ag-white/70">Studio 42, Textile Mill St, Mumbai 400013</span>
+            <span className="text-ag-white/70">Gurukripa Hardware and Building Material, Choraya Siwana Road, Mokalsar, Barmer District - 344043</span>
           </div>
           <div className="flex items-center space-x-3">
             <Phone className="w-5 h-5 text-ag-copper" />
-            <span className="text-ag-white/70">+91 22 4900 3200</span>
+            <span className="text-ag-white/70">+919024557490</span>
           </div>
           <div className="flex items-center space-x-3">
             <Mail className="w-5 h-5 text-ag-copper" />

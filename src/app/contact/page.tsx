@@ -32,12 +32,13 @@ export default function ContactPage() {
                   <div className="flex items-start space-x-4 text-ag-white/80 group">
                     <MapPin className="w-5 h-5 text-ag-copper flex-shrink-0" />
                     <span className="font-sans text-lg group-hover:text-ag-white transition-colors">
-                      Industrial Estate, Phase IV, <br /> Gurgaon, Haryana 122015
+                      Gurukripa Hardware and Building Material, <br />
+                      Choraya Siwana Road, Mokalsar, Barmer District - 344043
                     </span>
                   </div>
                   <div className="flex items-center space-x-4 text-ag-white/80 group">
                     <Phone className="w-5 h-5 text-ag-copper flex-shrink-0" />
-                    <span className="font-sans text-lg group-hover:text-ag-white transition-colors">+91 9876 543210</span>
+                    <span className="font-sans text-lg group-hover:text-ag-white transition-colors">+919024557490</span>
                   </div>
                   <div className="flex items-center space-x-4 text-ag-white/80 group">
                     <Mail className="w-5 h-5 text-ag-copper flex-shrink-0" />

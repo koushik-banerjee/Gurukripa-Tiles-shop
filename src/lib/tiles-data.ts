@@ -10,7 +10,20 @@ export interface Tile {
   slug: string;
   collection: string;
   room: ("bathroom" | "kitchen" | "living" | "outdoor" | "commercial")[];
-  material: "Marble" | "Porcelain" | "Cement" | "Terrazzo" | "Mosaic" | "Slate" | "Travertine" | "Terracotta";
+  material:
+    | "Marble"
+    | "Marble-Finish"
+    | "Porcelain"
+    | "Ceramic"
+    | "Vitrified"
+    | "Cement"
+    | "Terrazzo"
+    | "Mosaic"
+    | "Slate"
+    | "Stone-Look"
+    | "Wooden-Finish"
+    | "Travertine"
+    | "Terracotta";
   finish: "Matte" | "Glossy" | "Textured" | "Polished" | "Brushed";
   size: string;
   color: string;
@@ -25,41 +38,41 @@ export interface Tile {
 export const tiles: Tile[] = [
   {
     id: "1",
-    name: "Obsidian Noir",
-    slug: "obsidian-noir",
-    collection: "Noir Series",
+    name: "Copper Dune",
+    slug: "copper-dune",
+    collection: "Desert Series",
     room: ["living", "commercial"],
     material: "Porcelain",
     finish: "Polished",
     size: "60×120 cm",
-    color: "Deep Black",
+    color: "Burnished Copper",
     pricePerSqFt: 450,
     coveragePerBox: 15.5,
-    description: "A deep, monolithic black porcelain tile with subtle dark-grey veining, reminiscent of volcanic glass.",
+    description: "A bold porcelain tile with warm metallic movement inspired by sun-baked desert minerals.",
     images: ["/images/tiles/obsidian-1.jpg", "/images/tiles/obsidian-2.jpg"],
     rating: 4.9,
     reviews: [
-      { name: "Julian V.", text: "The reflection is like a dark mirror. Stunning.", rating: 5 },
+      { name: "Julian V.", text: "The copper sheen adds instant warmth. Stunning.", rating: 5 },
       { name: "Sarah K.", text: "Perfect for our studio lobby.", rating: 5 }
     ]
   },
   {
     id: "2",
-    name: "Arctic Silk",
-    slug: "arctic-silk",
-    collection: "Arctic Frost",
+    name: "Pearl Silk",
+    slug: "pearl-silk",
+    collection: "Luxe Vein",
     room: ["bathroom", "living"],
-    material: "Marble",
+    material: "Marble-Finish",
     finish: "Matte",
     size: "80×80 cm",
-    color: "Pure White",
+    color: "Pearl Beige",
     pricePerSqFt: 850,
     coveragePerBox: 13.8,
-    description: "Ultra-pure white marble with a silk-touch finish. Minimalist elegance at its peak.",
+    description: "Silk-touch marble-finish surface with soft pearl undertones and elegant movement.",
     images: ["/images/tiles/arctic-1.jpg", "/images/tiles/arctic-2.jpg"],
     rating: 4.8,
     reviews: [
-      { name: "Marco P.", text: "Exquisite texture. Feels warm even for a white tile.", rating: 5 }
+      { name: "Marco P.", text: "Exquisite texture and a refined premium finish.", rating: 5 }
     ]
   },
   {
@@ -88,10 +101,10 @@ export const tiles: Tile[] = [
     material: "Cement",
     finish: "Matte",
     size: "100×100 cm",
-    color: "Industrial Grey",
+    color: "Urban Taupe",
     pricePerSqFt: 380,
     coveragePerBox: 21.5,
-    description: "Raw concrete aesthetics with the durability of high-fired cement. Architectural and bold.",
+    description: "Raw concrete aesthetics with high-fired cement durability and warm urban undertones.",
     images: ["/images/tiles/concrete-1.jpg"],
     rating: 4.5,
     reviews: []
@@ -149,17 +162,17 @@ export const tiles: Tile[] = [
   },
   {
     id: "8",
-    name: "Carrara Cloud",
-    slug: "carrara-cloud",
-    collection: "Arctic Frost",
+    name: "Carrara Dune",
+    slug: "carrara-dune",
+    collection: "Luxe Vein",
     room: ["bathroom", "living", "kitchen"],
-    material: "Marble",
+    material: "Marble-Finish",
     finish: "Polished",
     size: "60×120 cm",
-    color: "White with Grey Veins",
+    color: "Sand with Amber Veins",
     pricePerSqFt: 950,
     coveragePerBox: 15.5,
-    description: "Classic Italian Carrara marble with sprawling grey veins. Time-honored luxury.",
+    description: "Classic Carrara-inspired marble finish with flowing amber veining and timeless elegance.",
     images: ["/images/tiles/carrara-1.jpg"],
     rating: 4.9,
     reviews: []
@@ -173,10 +186,10 @@ export const tiles: Tile[] = [
     material: "Terrazzo",
     finish: "Matte",
     size: "60×60 cm",
-    color: "Blue & Grey speckled",
+    color: "Blue & Sand Speckled",
     pricePerSqFt: 520,
     coveragePerBox: 11.6,
-    description: "Modern terrazzo with large blue and grey aggregate suspended in white cement.",
+    description: "Modern terrazzo with large blue and sand-toned aggregate for vibrant contemporary spaces.",
     images: ["/images/tiles/terrazzo-1.jpg"],
     rating: 4.4,
     reviews: []
@@ -219,15 +232,15 @@ export const tiles: Tile[] = [
     id: "12",
     name: "Frost Mosaic",
     slug: "frost-mosaic",
-    collection: "Arctic Frost",
+    collection: "Casa Moderna",
     room: ["bathroom", "kitchen"],
     material: "Mosaic",
     finish: "Glossy",
     size: "30×30 cm Sheet",
-    color: "Icy White",
+    color: "Frosted Pearl",
     pricePerSqFt: 1100,
     coveragePerBox: 5.4,
-    description: "Hexagonal glass mosaic tiles with a frosted finish and iridescent sheen.",
+    description: "Hexagonal glass mosaic tiles with a frosted finish and iridescent pearl sheen.",
     images: ["/images/tiles/frost-mosaic-1.jpg"],
     rating: 4.9,
     reviews: []
@@ -289,14 +302,99 @@ export const tiles: Tile[] = [
     slug: "silver-slate",
     collection: "Raw Earth",
     room: ["outdoor", "commercial"],
-    material: "Slate",
+    material: "Stone-Look",
     finish: "Textured",
     size: "60×120 cm",
-    color: "Light Grey Slate",
+    color: "Silver Taupe",
     pricePerSqFt: 440,
     coveragePerBox: 15.5,
-    description: "Lightweight architectural slate panels with a silver-grey shimmer.",
+    description: "Architectural stone-look panels with a refined silver-taupe shimmer.",
     images: ["/images/tiles/silver-slate-1.jpg"],
+    rating: 4.8,
+    reviews: []
+  },
+  {
+    id: "17",
+    name: "Sienna Ceramic",
+    slug: "sienna-ceramic",
+    collection: "Heritage Clay",
+    room: ["kitchen", "living"],
+    material: "Ceramic",
+    finish: "Matte",
+    size: "60×60 cm",
+    color: "Sienna Sand",
+    pricePerSqFt: 360,
+    coveragePerBox: 11.6,
+    description: "Versatile ceramic tile with earthy sienna tones for classic and modern interiors.",
+    images: ["/images/tiles/clay-1.jpg"],
+    rating: 4.6,
+    reviews: []
+  },
+  {
+    id: "18",
+    name: "Amber Vitrified",
+    slug: "amber-vitrified",
+    collection: "Prime Vitrified",
+    room: ["living", "commercial"],
+    material: "Vitrified",
+    finish: "Polished",
+    size: "80×80 cm",
+    color: "Amber Beige",
+    pricePerSqFt: 540,
+    coveragePerBox: 13.8,
+    description: "High-density vitrified tile with low porosity and a durable polished amber finish.",
+    images: ["/images/tiles/arctic-2.jpg"],
+    rating: 4.7,
+    reviews: []
+  },
+  {
+    id: "19",
+    name: "Maple Grain",
+    slug: "maple-grain",
+    collection: "Wood Atelier",
+    room: ["living", "kitchen", "commercial"],
+    material: "Wooden-Finish",
+    finish: "Textured",
+    size: "20×120 cm",
+    color: "Maple Honey",
+    pricePerSqFt: 500,
+    coveragePerBox: 10.2,
+    description: "Wooden-finish planks with natural grain variation for warm, inviting interiors.",
+    images: ["/images/tiles/wabi-1.jpg"],
+    rating: 4.8,
+    reviews: []
+  },
+  {
+    id: "20",
+    name: "Terracotta Grove",
+    slug: "terracotta-grove",
+    collection: "Heritage Clay",
+    room: ["outdoor", "living"],
+    material: "Terracotta",
+    finish: "Textured",
+    size: "30×30 cm",
+    color: "Sunset Terracotta",
+    pricePerSqFt: 280,
+    coveragePerBox: 10.5,
+    description: "Terracotta tiles with handcrafted texture, ideal for courtyards and rustic spaces.",
+    images: ["/images/tiles/terra-1.jpg"],
+    rating: 4.7,
+    reviews: []
+  },
+  {
+    id: "21",
+    name: "Riverstone Craft",
+    slug: "riverstone-craft",
+    collection: "Nature Edit",
+    room: ["bathroom", "outdoor", "commercial"],
+    material: "Stone-Look",
+    finish: "Brushed",
+    size: "60×120 cm",
+    color: "River Sand",
+    pricePerSqFt: 560,
+    coveragePerBox: 15.5,
+    description: "Stone-look surface with subtle mineral texture for spa-like and exterior settings.",
+    images: ["/images/tiles/sand-1.jpg"],
     rating: 4.8,
     reviews: []
   }

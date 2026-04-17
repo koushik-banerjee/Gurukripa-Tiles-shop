@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const stats = [
   { value: "1000+", label: "Architectural Designs" },
-  { value: "45", label: "Global Showrooms" },
+  { value: "45+", label: "Tiles Categories" },
   { value: "Premium", label: "Exquisite Selection" },
   { value: "Exclusive", label: "White-Glove Support" },
 ];
@@ -24,7 +24,7 @@ export function StatsSection() {
   return (
     <section
       ref={targetRef}
-      className="relative py-24 md:py-40 overflow-hidden bg-ag-black border-y border-ag-mist/20"
+      className="relative min-h-[90vh] py-24 md:py-40 overflow-hidden bg-ag-black border-y border-ag-mist/20 flex items-center"
     >
       {/* Parallax Background */}
       <motion.div
@@ -47,7 +47,7 @@ export function StatsSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-ag-black via-transparent to-ag-black" />
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16">
           {stats.map((stat, i) => (
             <StatCard key={i} stat={stat} index={i} />

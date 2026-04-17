@@ -13,7 +13,21 @@ import { Slider } from "@/components/ui/slider";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const filters = {
-  material: ["Marble", "Porcelain", "Cement", "Terrazzo", "Mosaic", "Slate", "Travertine"],
+  material: [
+    "Marble",
+    "Marble-Finish",
+    "Porcelain",
+    "Ceramic",
+    "Vitrified",
+    "Cement",
+    "Terrazzo",
+    "Mosaic",
+    "Slate",
+    "Stone-Look",
+    "Wooden-Finish",
+    "Travertine",
+    "Terracotta",
+  ],
   finish: ["Matte", "Glossy", "Textured", "Polished", "Brushed"],
 };
 
