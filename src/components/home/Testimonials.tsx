@@ -1,79 +1,93 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import * as React from "react";
 
 const testimonials = [
   {
-    quote: "The precision of the Obsidian Noir tiles allowed us to create a truly monolithic lobby that feels carved from a single block.",
+    quote:
+      "The precision of the Obsidian Noir tiles allowed us to create a truly monolithic lobby that feels carved from a single block.",
     author: "Zarah H.",
     project: "Visionary Studio",
   },
   {
-    quote: "Gurukripa Tiles' curation of raw materials is unmatched. Their travertine has a soul that you just don't find in mass-produced alternatives.",
+    quote:
+      "Gurukripa Tiles' curation of raw materials is unmatched. Their travertine has a soul that you just don't find in mass-produced alternatives.",
     author: "Marcus Aurelius",
     project: "Heritage Restoration",
   },
 ];
 
 export function Testimonials() {
-  const targetRef = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  const xOffset = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
-
   return (
-    <section 
-      ref={targetRef}
-      className="py-32 md:py-48 px-6 bg-ag-stone relative overflow-hidden"
-    >
-      {/* Background Parallax Text */}
-      <motion.div 
-        style={{ x: xOffset }}
-        className="absolute top-1/2 -translate-y-1/2 left-0 whitespace-nowrap opacity-[0.03] pointer-events-none select-none"
-      >
-        <span className="text-[30vw] font-display font-bold leading-none tracking-tighter">
-          PHILOSOPHY•TESTIMONIALS•HERITAGE•PHILOSOPHY
-        </span>
-      </motion.div>
+    <section className="py-32 md:py-40 px-6 bg-ag-stone relative overflow-hidden">
 
-      <div className="max-w-5xl mx-auto relative z-10">
-        <div className="flex flex-col space-y-24">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, delay: i * 0.2 }}
-              className={`flex flex-col ${i % 2 === 0 ? "items-start" : "items-end"} space-y-8`}
-            >
-              <div className={`max-w-3xl ${i % 2 === 0 ? "text-left" : "text-right"} relative`}>
-                <div className={`absolute -top-12 ${i % 2 === 0 ? "-left-8" : "-right-8"} opacity-10`}>
-                   <span className="text-8xl font-display">“</span>
-                </div>
-                <h2 className="text-3xl md:text-5xl font-display italic leading-tight text-ag-white">
-                  {t.quote}
-                </h2>
+      {/* Section Title */}
+      <div className="max-w-6xl mx-auto mb-20 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-6xl font-display font-semibold text-ag-white tracking-tight"
+        >
+          Trusted by Visionaries
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-ag-sand/60 mt-4 max-w-xl mx-auto text-lg"
+        >
+          Architects and designers across the world trust Gurukripa Tiles
+          to bring their spaces to life.
+        </motion.p>
+      </div>
+
+      {/* Testimonials Grid */}
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+
+        {testimonials.map((t, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.2, duration: 0.8 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -6 }}
+            className="relative p-10 md:p-12 border border-ag-mist/20 bg-ag-black/40 backdrop-blur-lg group transition-all"
+          >
+            {/* Quote Icon */}
+            <div className="absolute -top-6 left-6 text-6xl text-ag-copper/20 font-display">
+              "
+            </div>
+
+            {/* Quote */}
+            <p className="text-ag-white text-xl md:text-2xl font-display italic leading-relaxed mb-8">
+              {t.quote}
+            </p>
+
+            {/* Divider */}
+            <div className="w-12 h-[1px] bg-ag-copper mb-6" />
+
+            {/* Author */}
+            <div>
+              <div className="text-ag-white text-lg font-display">
+                {t.author}
               </div>
-              
-              <div className={`flex items-center space-x-4 ${i % 2 === 0 ? "flex-row" : "flex-row-reverse space-x-reverse"}`}>
-                <div className="w-12 h-[1px] bg-ag-copper" />
-                <div className={i % 2 === 0 ? "text-left" : "text-right"}>
-                  <div className="text-ag-white font-display text-xl">{t.author}</div>
-                  <div className="text-ag-sand/50 text-[10px] uppercase tracking-[0.3em] font-mono mt-1">
-                    {t.project}
-                  </div>
-                </div>
+
+              <div className="text-ag-sand/50 text-xs uppercase tracking-[0.35em] mt-1 font-mono">
+                {t.project}
               </div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+
+            {/* Hover Accent */}
+            <div className="absolute inset-0 border border-ag-copper/0 group-hover:border-ag-copper/40 transition-all pointer-events-none" />
+          </motion.div>
+        ))}
       </div>
     </section>
   );
 }
-

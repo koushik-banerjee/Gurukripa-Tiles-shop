@@ -3,10 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Heart, ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { useWishlistStore } from "@/lib/store";
 import { Tile } from "@/lib/tiles-data";
 
 interface TileCardProps {
@@ -14,9 +12,6 @@ interface TileCardProps {
 }
 
 export function TileCard({ tile }: TileCardProps) {
-  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlistStore();
-  const isWishlisted = isInWishlist(tile.id);
-
   return (
     <motion.div
       layout
@@ -50,31 +45,15 @@ export function TileCard({ tile }: TileCardProps) {
       </Link>
 
       <div className="p-6 flex-grow flex flex-col justify-between">
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h3 className="text-lg font-display text-ag-white mb-1 group-hover:text-ag-copper transition-colors">
-              {tile.name}
-            </h3>
-            <p className="text-xs text-ag-sand/50 font-mono tracking-wider">{tile.collection}</p>
-          </div>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              isWishlisted ? removeFromWishlist(tile.id) : addToWishlist(tile.id);
-            }}
-            className={cn(
-              "p-2 rounded-full border border-ag-mist/30 transition-all",
-              isWishlisted ? "bg-ag-copper text-ag-white border-ag-copper" : "text-ag-white/40 hover:text-ag-white hover:border-ag-white/20"
-            )}
-          >
-            <Heart className={cn("w-4 h-4", isWishlisted && "fill-current")} />
-          </button>
+        <div>
+          <h3 className="text-lg font-display text-ag-white mb-1 group-hover:text-ag-copper transition-colors">
+            {tile.name}
+          </h3>
+          <p className="text-xs text-ag-sand/50 font-mono tracking-wider">{tile.collection}</p>
         </div>
 
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-ag-mist/30">
-          <div className="text-sm font-mono text-ag-sand">
-            ₹{tile.pricePerSqFt} <span className="text-[10px] opacity-50">/sq ft</span>
-          </div>
+        <div className="flex items-center justify-between mt-4 pt-4 border-t border-ag-mist/30">
+          <div className="text-[10px] uppercase tracking-[0.2em] text-ag-sand/50 font-mono">{tile.material}</div>
           <Badge variant="outline" className="text-[9px] uppercase tracking-[0.2em] border-ag-mist text-ag-sand/70 rounded-none bg-ag-stone/30">
             {tile.finish}
           </Badge>
