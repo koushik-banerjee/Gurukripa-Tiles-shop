@@ -3,10 +3,9 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, Heart, Menu, X } from "lucide-react";
+import { Search, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { useWishlistStore } from "@/lib/store";
 import {
   Sheet,
   SheetContent,
@@ -18,6 +17,7 @@ import { ConsultationModal } from "@/components/shared/ConsultationModal";
 import { SearchOverlay } from "./SearchOverlay";
 
 const navLinks = [
+  { name: "Home", href: "/" },
   { name: "Tiles", href: "/tiles" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
@@ -27,7 +27,6 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isSearchOpen, setIsSearchOpen] = React.useState(false);
   const pathname = usePathname();
-  const { wishlist } = useWishlistStore();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -83,15 +82,6 @@ export function Navbar() {
           >
             <Search className="w-5 h-5" />
           </button>
-          
-          <Link href="/wishlist" className="p-2 text-ag-white/70 hover:text-ag-white transition-colors relative">
-            <Heart className="w-5 h-5" />
-            {wishlist.length > 0 && (
-              <span className="absolute top-1 right-1 bg-ag-copper text-ag-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full font-mono">
-                {wishlist.length}
-              </span>
-            )}
-          </Link>
 
           <div className="hidden lg:block">
             <ConsultationModal>

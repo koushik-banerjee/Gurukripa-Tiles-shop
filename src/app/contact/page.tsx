@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ConsultationModal } from "@/components/shared/ConsultationModal";
 import { Mail, Phone, MapPin, Globe, Users, MessageSquare } from "lucide-react";
+
+const emailAddress = "gurukrupahardware90@gmail.com";
 
 export default function ContactPage() {
   return (
@@ -30,19 +31,19 @@ export default function ContactPage() {
                 <h3 className="text-xs uppercase tracking-[0.3em] text-ag-copper font-mono">Headquarters</h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4 text-ag-white/80 group">
-                    <MapPin className="w-5 h-5 text-ag-copper flex-shrink-0" />
+                    <MapPin className="w-5 h-5 text-ag-copper shrink-0" />
                     <span className="font-sans text-lg group-hover:text-ag-white transition-colors">
                       Gurukripa Hardware and Building Material, <br />
                       Choraya Siwana Road, Mokalsar, Barmer District - 344043
                     </span>
                   </div>
                   <div className="flex items-center space-x-4 text-ag-white/80 group">
-                    <Phone className="w-5 h-5 text-ag-copper flex-shrink-0" />
+                    <Phone className="w-5 h-5 text-ag-copper shrink-0" />
                     <span className="font-sans text-lg group-hover:text-ag-white transition-colors">+919024557490</span>
                   </div>
                   <div className="flex items-center space-x-4 text-ag-white/80 group">
-                    <Mail className="w-5 h-5 text-ag-copper flex-shrink-0" />
-                    <span className="font-sans text-lg group-hover:text-ag-white transition-colors">info@gurukripatiles.com</span>
+                    <Mail className="w-5 h-5 text-ag-copper shrink-0" />
+                    <span className="font-sans text-lg group-hover:text-ag-white transition-colors">{emailAddress}</span>
                   </div>
                 </div>
               </div>
@@ -68,35 +69,24 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Right: Interactive Card */}
+          {/* Right: Map */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="bg-ag-charcoal border border-ag-mist p-8 md:p-16 flex flex-col justify-center items-center text-center space-y-8 relative overflow-hidden"
+            className="bg-ag-charcoal border border-ag-mist p-4 md:p-6 flex flex-col space-y-4 relative overflow-hidden min-h-105"
           >
-            {/* Geometric Background Element */}
-            <div className="absolute top-0 right-0 w-full h-full opacity-5 pointer-events-none">
-              <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] border border-ag-copper rotate-45" />
+            <div className="aspect-4/5 md:aspect-auto md:flex-1 w-full overflow-hidden border border-ag-mist bg-ag-black">
+              <iframe
+                title="Gurukripa Hardware and Building Material location"
+                src="https://www.google.com/maps?q=Gurukripa%20Hardware%20and%20Building%20Material%2C%20Choraya%20Siwana%20Road%2C%20Mokalsar%2C%20Barmer%20District%20-%20344043&output=embed"
+                className="h-full w-full grayscale"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
-
-            <h2 className="text-4xl font-display text-ag-white max-w-sm">
-              Ready to redefine your surface?
-            </h2>
-            <p className="text-ag-sand/50 font-sans max-w-xs">
-              Use our digital portal to schedule a private walkthrough.
-            </p>
-            
-            <div className="pt-8 w-full">
-              <ConsultationModal>
-                <button className="w-full bg-ag-copper hover:bg-ag-copper/90 text-ag-white text-lg py-6 uppercase tracking-widest font-bold transition-all">
-                  Open Booking Portal
-                </button>
-              </ConsultationModal>
-            </div>
-
-            <div className="pt-12 text-[10px] uppercase tracking-[0.2em] text-ag-sand/30 font-mono">
-              Average Response Time: 4 Hours
+            <div className="text-[10px] uppercase tracking-[0.2em] text-ag-sand/30 font-mono text-center">
+              Visit us at our Mokalsar showroom
             </div>
           </motion.div>
         </div>

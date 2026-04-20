@@ -69,7 +69,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
             transition={{ delay: 1, duration: 1.5 }}
-            className="w-full max-w-sm h-[1px] bg-ag-copper/30 mx-auto mt-12"
+            className="w-full max-w-sm h-px bg-ag-copper/30 mx-auto mt-12"
           />
         </div>
 
@@ -107,7 +107,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="md:col-span-5 relative aspect-[3/4] border border-ag-mist overflow-hidden translate-y-12"
+              className="md:col-span-5 relative aspect-3/4 border border-ag-mist overflow-hidden translate-y-12"
             >
               <Image
                 src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
@@ -126,7 +126,7 @@ export default function AboutPage() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
             <div className="space-y-4">
               <span className="text-ag-copper font-mono text-xs uppercase tracking-widest">02 / Leadership</span>
-              <h2 className="text-5xl md:text-7xl font-display">The Visionaries</h2>
+              <h2 className="text-5xl md:text-7xl font-display">The Team</h2>
             </div>
             <p className="text-ag-sand/40 max-w-xs font-sans text-sm italic">
               Meet the core team at our Mokalsar branch.
@@ -136,19 +136,19 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24">
             {[
               {
-                name: "Uday Singh",
-                role: "Owner",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
+                name: "Owner",
+                role: "Leadership",
+                image: "/static/owner.jpeg",
               },
               {
-                name: "Ashok Singh",
-                role: "Branch Manager",
-                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
+                name: "Manager",
+                role: "Operations",
+                image: "/static/manager.jpeg",
               },
               {
-                name: "Mukesh Bhati",
-                role: "Worker",
-                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
+                name: "Worker",
+                role: "Site Support",
+                image: "/static/worker.jpeg",
               },
             ].map((member, i) => (
               <motion.div
@@ -159,8 +159,8 @@ export default function AboutPage() {
                 transition={{ delay: i * 0.2 }}
                 className="group relative"
               >
-                <div className="relative aspect-[4/5] bg-ag-stone/20 border border-ag-mist/20 overflow-hidden mb-8">
-                  <div className="absolute inset-0 bg-gradient-to-t from-ag-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative aspect-4/5 bg-ag-stone/20 border border-ag-mist/20 overflow-hidden mb-8">
+                  <div className="absolute inset-0 bg-linear-to-t from-ag-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -172,7 +172,7 @@ export default function AboutPage() {
                 <div className="relative">
                   <span className="text-[10px] font-mono text-ag-copper uppercase tracking-[0.3em] mb-2 block">{member.role}</span>
                   <h3 className="text-3xl font-display text-ag-white mb-4">{member.name}</h3>
-                  <div className="h-[1px] w-full bg-ag-mist/20 mb-4 group-hover:w-1/2 transition-all duration-500" />
+                  <div className="h-px w-full bg-ag-mist/20 mb-4 group-hover:w-1/2 transition-all duration-500" />
                 </div>
               </motion.div>
             ))}
@@ -211,7 +211,7 @@ export default function AboutPage() {
                 <span className="text-ag-copper font-mono text-[10px] tracking-widest">{value.code}</span>
                 <h3 className="text-2xl font-display text-ag-white uppercase tracking-wider">{value.title}</h3>
                 <p className="text-ag-sand/50 text-sm leading-relaxed font-sans">{value.desc}</p>
-                <div className="w-8 h-[1px] bg-ag-copper/30 group-hover:w-16 transition-all" />
+                <div className="w-8 h-px bg-ag-copper/30 group-hover:w-16 transition-all" />
               </motion.div>
             ))}
           </div>

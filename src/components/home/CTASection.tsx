@@ -3,8 +3,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import Image from "next/image";
+
+const whatsappLink = "https://wa.me/919024557490";
 
 export function CTASection() {
   const targetRef = React.useRef(null);
@@ -40,7 +41,7 @@ export function CTASection() {
           className="object-cover grayscale"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-ag-black via-transparent to-ag-black" />
+        <div className="absolute inset-0 bg-linear-to-t from-ag-black via-transparent to-ag-black" />
       </motion.div>
 
       {/* Content */}
@@ -99,18 +100,19 @@ export function CTASection() {
           className="pt-12"
         >
           <Button
-            asChild
+            type="button"
+            onClick={() => window.open(whatsappLink, "_blank")}
             className="bg-ag-copper hover:bg-ag-copper/90 text-ag-white px-16 py-8 text-sm uppercase tracking-widest rounded-none h-auto transition-transform duration-300 hover:scale-105"
           >
-            <Link href="/contact">Book Consultation</Link>
+            Book Consultation
           </Button>
         </motion.div>
 
       </div>
 
       {/* Decorative Lines */}
-      <div className="absolute top-0 right-0 w-[1px] h-32 bg-gradient-to-b from-ag-copper/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-[1px] h-32 bg-gradient-to-t from-ag-copper/30 to-transparent" />
+      <div className="absolute top-0 right-0 w-px h-32 bg-linear-to-b from-ag-copper/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-px h-32 bg-linear-to-t from-ag-copper/30 to-transparent" />
     </section>
   );
 }

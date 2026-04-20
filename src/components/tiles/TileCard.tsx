@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Tile } from "@/lib/tiles-data";
 
@@ -20,7 +18,7 @@ export function TileCard({ tile }: TileCardProps) {
       exit={{ opacity: 0 }}
       className="group relative bg-ag-charcoal border border-ag-mist overflow-hidden h-full flex flex-col"
     >
-      <Link href={`/tiles/${tile.slug}`} className="relative aspect-square overflow-hidden block">
+      <div className="relative aspect-square overflow-hidden block">
         <Image
           src={tile.images[0]}
           alt={tile.name}
@@ -36,15 +34,11 @@ export function TileCard({ tile }: TileCardProps) {
               <div className="text-[10px] uppercase tracking-widest text-ag-copper mb-1">{tile.material}</div>
               <div className="text-sm font-display text-ag-white">{tile.size}</div>
             </div>
-            <div className="text-ag-white flex items-center gap-1 group/link">
-              <span className="text-[10px] uppercase tracking-widest">View Details</span>
-              <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform" />
-            </div>
           </div>
         </div>
-      </Link>
+      </div>
 
-      <div className="p-6 flex-grow flex flex-col justify-between">
+      <div className="p-6 grow flex flex-col justify-between">
         <div>
           <h3 className="text-lg font-display text-ag-white mb-1 group-hover:text-ag-copper transition-colors">
             {tile.name}
