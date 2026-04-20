@@ -80,7 +80,7 @@ export default function ContactPage() {
               <iframe
                 title="Gurukripa Hardware and Building Material location"
                 src="https://www.google.com/maps?q=Gurukripa%20Hardware%20and%20Building%20Material%2C%20Choraya%20Siwana%20Road%2C%20Mokalsar%2C%20Barmer%20District%20-%20344043&output=embed"
-                className="h-full w-full grayscale"
+                className="h-full w-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
