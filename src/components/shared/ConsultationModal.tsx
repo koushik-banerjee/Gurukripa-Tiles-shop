@@ -3,7 +3,11 @@
 import * as React from "react";
 const whatsappLink = "https://wa.me/919024557490";
 
-export function ConsultationModal({ children }: { children: React.ReactElement }) {
+type ConsultationTriggerProps = {
+  onClick?: React.MouseEventHandler<HTMLElement>;
+};
+
+export function ConsultationModal({ children }: { children: React.ReactElement<ConsultationTriggerProps> }) {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     children.props.onClick?.(event);
 
