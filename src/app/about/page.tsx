@@ -128,25 +128,23 @@ export default function AboutPage() {
               <span className="text-ag-copper font-mono text-xs uppercase tracking-widest">02 / Leadership</span>
               <h2 className="text-5xl md:text-7xl font-display">The Team</h2>
             </div>
-            <p className="text-ag-sand/40 max-w-xs font-sans text-sm italic">
-              Meet the core team at our Mokalsar branch.
-            </p>
+            
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24">
             {[
               {
-                name: "Owner",
+                name: "Uday Singh Rajpurohit",
                 role: "Leadership",
                 image: "/static/owner.jpeg",
               },
               {
-                name: "Manager",
+                name: "Ashok Singh",
                 role: "Operations",
                 image: "/static/manager.jpeg",
               },
               {
-                name: "Worker",
+                name: "Mukesh Kumar Bhati",
                 role: "Site Support",
                 image: "/static/worker.jpeg",
               },
