@@ -56,7 +56,7 @@ const TilesContent = dynamic(() => Promise.resolve(function TilesContentComponen
 
           <motion.div 
             layout
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6"
           >
             <AnimatePresence mode="popLayout">
               {filteredTiles.map((tile) => (

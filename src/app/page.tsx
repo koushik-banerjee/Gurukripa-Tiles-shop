@@ -3,7 +3,7 @@ import { MarqueeBand } from "@/components/home/MarqueeBand";
 
 import { StatsSection } from "@/components/home/StatsSection";
 import { WhySection } from "@/components/home/WhySection";
-import { Testimonials } from "@/components/home/Testimonials";
+import { TileGallery } from "@/components/home/TileGallery";
 import { CTASection } from "@/components/home/CTASection";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
 
       <StatsSection />
       <WhySection />
-      <Testimonials />
+      <TileGallery />
       <CTASection />
     </div>
   );

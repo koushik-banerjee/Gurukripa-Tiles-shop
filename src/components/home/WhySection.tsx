@@ -16,7 +16,7 @@ const stages: Stage[] = [
   {
     title: "Material Purity",
     description:
-      "Ethically sourced raw stone and high-grade minerals, processed with zero compromises on integrity.",
+      "Ethically sourced raw stone and high-grade minerals processed with zero compromises on integrity.",
     image: "/images/tiles/obsidian-1.jpg",
     label: "Quartzite // 001",
     specs: ["MOHS // 7.5", "ORIGIN // ITALY"],
@@ -24,15 +24,15 @@ const stages: Stage[] = [
   {
     title: "Precision Cut",
     description:
-      "Laser-calibrated edges that allow for seamless 1mm grout lines for a monolithic architectural look.",
+      "Laser-calibrated edges allowing seamless 1mm grout lines for monolithic architecture.",
     image: "/images/tiles/silver-slate-1.jpg",
     label: "Joint // 002",
     specs: ["TOLERANCE // 0.1mm", "JOINT // 1mm"],
   },
   {
-    title: "Architect-Grade",
+    title: "Architect Grade",
     description:
-      "Specified by world-renowned studios for hospitality, commercial, and ultra-high-end residential projects.",
+      "Specified by renowned studios for hospitality, commercial and luxury residential projects.",
     image: "/images/tiles/basalt-1.jpg",
     label: "Volume // 003",
     specs: ["RATING // R11", "ABSORPTION // <0.1%"],
@@ -40,7 +40,7 @@ const stages: Stage[] = [
   {
     title: "Lifetime Support",
     description:
-      "From curation to installation and maintenance, our specialist team accompanies your project for life.",
+      "From curation to installation and maintenance our specialists support your project for life.",
     image: "/images/tiles/carrara-1.jpg",
     label: "Legacy // 004",
     specs: ["SERVICE // 24/7", "TYPE // WHITE GLOVE"],
@@ -48,10 +48,10 @@ const stages: Stage[] = [
 ];
 
 export function WhySection() {
-  const containerRef = React.useRef<HTMLDivElement>(null);
+  const ref = React.useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: ref,
     offset: ["start start", "end end"],
   });
 
@@ -69,11 +69,14 @@ export function WhySection() {
 
   const stage = stages[activeIndex];
 
+  const progress = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
   return (
-    <section ref={containerRef} className="relative h-[400vh] bg-ag-black">
+    <section ref={ref} className="relative h-[500vh] bg-black">
+
       <div className="sticky top-0 h-screen flex overflow-hidden">
 
-        {/* LEFT IMAGES */}
+        {/* IMAGE SIDE */}
         <div className="relative hidden lg:block w-1/2 h-full overflow-hidden">
 
           {stages.map((s, i) => (
@@ -85,40 +88,59 @@ export function WhySection() {
             />
           ))}
 
+          {/* overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent z-10" />
+
         </div>
 
-        {/* RIGHT TEXT */}
-        <div className="w-full lg:w-1/2 flex items-center px-10 md:px-20">
+        {/* TEXT SIDE */}
+        <div className="w-full lg:w-1/2 flex items-center px-10 md:px-24">
 
           <motion.div
             key={activeIndex}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="max-w-xl space-y-6"
+            transition={{ duration: 0.5 }}
+            className="max-w-xl space-y-8"
           >
 
-            <div className="flex gap-3 flex-wrap">
+            {/* label */}
+            <span className="text-xs tracking-[0.4em] uppercase text-ag-copper font-mono">
+              {stage.label}
+            </span>
+
+            {/* title */}
+            <h2 className="text-5xl md:text-6xl font-display text-white leading-tight tracking-tight">
+              {stage.title}
+            </h2>
+
+            {/* description */}
+            <p className="text-lg text-white/70 leading-relaxed">
+              {stage.description}
+            </p>
+
+            {/* specs */}
+            <div className="flex gap-3 flex-wrap pt-4">
               {stage.specs.map((s, i) => (
                 <span
                   key={i}
-                  className="text-[10px] font-mono text-ag-copper tracking-widest border border-ag-copper/30 px-3 py-1"
+                  className="text-[10px] font-mono tracking-widest text-white border border-white/20 px-4 py-2 backdrop-blur-sm"
                 >
                   {s}
                 </span>
               ))}
             </div>
 
-            <h3 className="text-4xl md:text-5xl font-display text-white">
-              {stage.title}
-            </h3>
-
-            <p className="text-ag-sand/70 text-lg leading-relaxed">
-              {stage.description}
-            </p>
-
           </motion.div>
 
+        </div>
+
+        {/* PROGRESS BAR */}
+        <div className="absolute bottom-14 left-1/2 -translate-x-1/2 w-[300px] h-[2px] bg-white/20">
+          <motion.div
+            style={{ width: progress }}
+            className="h-full bg-ag-copper"
+          />
         </div>
 
       </div>
@@ -141,15 +163,17 @@ function BackgroundLayer({
 
   const opacity = useTransform(
     scrollYProgress,
-    [start, start + 0.05, end - 0.05, end],
+    [start, start + 0.08, end - 0.08, end],
     [0, 1, 1, 0]
   );
 
-  const scale = useTransform(scrollYProgress, [start, end], [1.1, 1]);
+  const scale = useTransform(scrollYProgress, [start, end], [1.15, 1]);
+
+  const y = useTransform(scrollYProgress, [start, end], ["-5%", "5%"]);
 
   return (
     <motion.div
-      style={{ opacity, scale }}
+      style={{ opacity, scale, y }}
       className="absolute inset-0 will-change-transform"
     >
       <Image
