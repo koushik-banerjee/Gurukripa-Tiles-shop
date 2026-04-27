@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import * as React from "react";
 import Image from "next/image";
 
@@ -24,7 +24,7 @@ const stages: Stage[] = [
   {
     title: "Precision Cut",
     description:
-      "Laser-calibrated edges allowing seamless 1mm grout lines for monolithic architecture.",
+      "Laser calibrated edges allowing seamless 1mm grout lines.",
     image: "/images/tiles/silver-slate-1.jpg",
     label: "Joint // 002",
     specs: ["TOLERANCE // 0.1mm", "JOINT // 1mm"],
@@ -32,7 +32,7 @@ const stages: Stage[] = [
   {
     title: "Architect Grade",
     description:
-      "Specified by renowned studios for hospitality, commercial and luxury residential projects.",
+      "Specified by global studios for hospitality and luxury projects.",
     image: "/images/tiles/basalt-1.jpg",
     label: "Volume // 003",
     specs: ["RATING // R11", "ABSORPTION // <0.1%"],
@@ -40,7 +40,7 @@ const stages: Stage[] = [
   {
     title: "Lifetime Support",
     description:
-      "From curation to installation and maintenance our specialists support your project for life.",
+      "From curation to installation our specialists accompany your project for life.",
     image: "/images/tiles/carrara-1.jpg",
     label: "Legacy // 004",
     specs: ["SERVICE // 24/7", "TYPE // WHITE GLOVE"],
@@ -48,6 +48,7 @@ const stages: Stage[] = [
 ];
 
 export function WhySection() {
+
   const ref = React.useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -55,134 +56,82 @@ export function WhySection() {
     offset: ["start start", "end end"],
   });
 
-  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [index, setIndex] = React.useState(0);
 
   React.useEffect(() => {
     return scrollYProgress.on("change", (v) => {
-      const index = Math.min(
-        stages.length - 1,
-        Math.floor(v * stages.length)
-      );
-      setActiveIndex(index);
+      const i = Math.min(stages.length - 1, Math.floor(v * stages.length));
+      setIndex(i);
     });
   }, [scrollYProgress]);
 
-  const stage = stages[activeIndex];
-
-  const progress = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const stage = stages[index];
 
   return (
-    <section ref={ref} className="relative h-[500vh] bg-black">
+    <section ref={ref} className="bg-black py-32 h-[400vh]">
 
-      <div className="sticky top-0 h-screen flex overflow-hidden">
+      <div className="sticky top-24 flex justify-center">
 
-        {/* IMAGE SIDE */}
-        <div className="relative hidden lg:block w-1/2 h-full overflow-hidden">
+        {/* MAIN CARD */}
+        <div className="w-[1200px] rounded-[32px] bg-neutral-900 border border-white/10 p-10 flex gap-12 shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
 
-          {stages.map((s, i) => (
-            <BackgroundLayer
-              key={i}
-              image={s.image}
-              index={i}
-              scrollYProgress={scrollYProgress}
+          {/* IMAGE */}
+          <div className="relative w-1/2 h-[480px] rounded-2xl overflow-hidden">
+
+            <Image
+              src={stage.image}
+              alt={stage.title}
+              fill
+              className="object-cover"
             />
-          ))}
 
-          {/* overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent z-10" />
+            <div className="absolute inset-0 bg-black/30" />
 
-        </div>
+          </div>
 
-        {/* TEXT SIDE */}
-        <div className="w-full lg:w-1/2 flex items-center px-10 md:px-24">
+          {/* TEXT */}
+          <div className="w-1/2 flex flex-col justify-center text-white">
 
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-xl space-y-8"
-          >
-
-            {/* label */}
-            <span className="text-xs tracking-[0.4em] uppercase text-ag-copper font-mono">
+            <span className="px-4 py-1 bg-ag-copper/20 border border-ag-copper/40 rounded-full w-fit text-xs tracking-widest">
               {stage.label}
             </span>
 
-            {/* title */}
-            <h2 className="text-5xl md:text-6xl font-display text-white leading-tight tracking-tight">
+            <h2 className="text-4xl mt-6 font-display leading-tight">
               {stage.title}
             </h2>
 
-            {/* description */}
-            <p className="text-lg text-white/70 leading-relaxed">
+            <p className="text-white/70 mt-4 text-lg leading-relaxed">
               {stage.description}
             </p>
 
-            {/* specs */}
-            <div className="flex gap-3 flex-wrap pt-4">
+            {/* SPECS */}
+            <div className="flex gap-6 mt-8">
+
               {stage.specs.map((s, i) => (
-                <span
+                <div
                   key={i}
-                  className="text-[10px] font-mono tracking-widest text-white border border-white/20 px-4 py-2 backdrop-blur-sm"
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl px-6 py-4"
                 >
-                  {s}
-                </span>
+                  <p className="text-xs text-white/50 uppercase tracking-widest">
+                    Spec
+                  </p>
+                  <p className="text-lg font-semibold">{s}</p>
+                </div>
               ))}
+
             </div>
 
-          </motion.div>
+            {/* CTA */}
+            <button className="mt-10 border border-white/20 px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
+              Explore Materials
+            </button>
 
-        </div>
+          </div>
 
-        {/* PROGRESS BAR */}
-        <div className="absolute bottom-14 left-1/2 -translate-x-1/2 w-[300px] h-[2px] bg-white/20">
-          <motion.div
-            style={{ width: progress }}
-            className="h-full bg-ag-copper"
-          />
         </div>
 
       </div>
+
     </section>
-  );
-}
-
-function BackgroundLayer({
-  image,
-  index,
-  scrollYProgress,
-}: {
-  image: string;
-  index: number;
-  scrollYProgress: MotionValue<number>;
-}) {
-
-  const start = index * 0.25;
-  const end = (index + 1) * 0.25;
-
-  const opacity = useTransform(
-    scrollYProgress,
-    [start, start + 0.08, end - 0.08, end],
-    [0, 1, 1, 0]
-  );
-
-  const scale = useTransform(scrollYProgress, [start, end], [1.15, 1]);
-
-  const y = useTransform(scrollYProgress, [start, end], ["-5%", "5%"]);
-
-  return (
-    <motion.div
-      style={{ opacity, scale, y }}
-      className="absolute inset-0 will-change-transform"
-    >
-      <Image
-        src={image}
-        alt=""
-        fill
-        priority={index === 0}
-        className="object-cover"
-      />
-    </motion.div>
   );
 }
