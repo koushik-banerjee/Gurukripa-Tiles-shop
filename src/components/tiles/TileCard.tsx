@@ -23,9 +23,9 @@ export function TileCard({ tile }: TileCardProps) {
           src={tile.images[0]}
           alt={tile.name}
           fill
-          className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+          className="object-cover transition-all duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-ag-black/20 group-hover:bg-transparent transition-colors" />
+        <div className="absolute inset-0 bg-transparent transition-colors" />
         
         {/* Hover Overlay */}
         <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform bg-ag-black/80 backdrop-blur-sm border-t border-ag-mist">

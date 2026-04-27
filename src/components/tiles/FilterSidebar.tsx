@@ -58,7 +58,7 @@ export function FilterSidebar() {
         <div>
           <h3 className="text-xs uppercase tracking-widest text-ag-sand font-semibold mb-6">Filters</h3>
           
-          <Accordion multiple defaultValue={["material"]} className="space-y-4">
+          <Accordion multiple defaultValue={[]} className="space-y-4">
             <AccordionItem value="material" className="border-ag-mist">
               <AccordionTrigger className="text-sm font-sans uppercase tracking-wider py-2">
                 Material
