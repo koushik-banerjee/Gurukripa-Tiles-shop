@@ -10,7 +10,8 @@ export function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 border-none shadow-2xl z-50 text-white flex items-center justify-center animate-bounce-subtle transition-transform hover:scale-110"
+      className="fixed right-6 w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 border-none shadow-2xl z-50 text-white flex items-center justify-center animate-bounce-subtle transition-transform hover:scale-110"
+      style={{ bottom: 'calc(24px + env(safe-area-inset-bottom))' }}
     >
       <svg
         viewBox="0 0 24 24"

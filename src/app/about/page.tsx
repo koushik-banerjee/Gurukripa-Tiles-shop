@@ -42,7 +42,7 @@ export default function AboutPage() {
             <span className="text-ag-copper font-mono text-[10px] uppercase tracking-[0.8em]">An Architectural Legacy</span>
           </motion.div>
           
-          <h1 className="text-[12vw] md:text-[8vw] font-display font-semibold leading-[0.85] tracking-tighter uppercase">
+          <h1 className="text-5xl sm:text-[12vw] md:text-[8vw] font-display font-semibold leading-[0.85] tracking-tighter uppercase">
             {"Honest".split("").map((char, i) => (
               <motion.span
                 key={i}
@@ -230,7 +230,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-3xl space-y-8">
             <span className="text-ag-copper font-mono text-xs uppercase tracking-widest">Conscious Extraction</span>
-            <h2 className="text-6xl md:text-9xl font-display text-ag-white leading-tight">
+            <h2 className="text-5xl md:text-9xl font-display text-ag-white leading-tight">
                Built for <br /> <span className="italic text-ag-sand/30">Generations</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20 pt-12 border-t border-ag-mist/20">

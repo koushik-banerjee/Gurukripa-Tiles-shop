@@ -28,6 +28,23 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Gurukripa Tiles | Surface. Redefined.",
   description: "Luxury tiles for architectural, designer, and high-end interiors.",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+    viewportFit: "cover",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Gurukripa Tiles",
+  },
+  themeColor: "#0D0C0B",
+  manifest: "/manifest.json",
+  icons: {
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 import { LoadingScreen } from "@/components/shared/LoadingScreen";

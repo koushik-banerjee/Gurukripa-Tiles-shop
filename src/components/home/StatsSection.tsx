@@ -48,7 +48,7 @@ export function StatsSection() {
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-16">
           {stats.map((stat, i) => (
             <StatCard key={i} stat={stat} index={i} />
           ))}

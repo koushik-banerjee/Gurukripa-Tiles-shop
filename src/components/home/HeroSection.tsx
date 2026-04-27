@@ -56,10 +56,10 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="font-display font-semibold tracking-tight text-ag-white leading-none"
+          className="font-display font-semibold tracking-tight text-ag-white leading-tight"
         >
           {/* Mobile */}
-          <span className="block sm:hidden text-5xl">
+          <span className="block sm:hidden text-4xl md:text-5xl">
             Gurukripa
           </span>
 
